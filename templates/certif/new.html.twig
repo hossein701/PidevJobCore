@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Certif{% endblock %}
+
+{% block content %}
+    <div class="vertical-space-85"></div>
+    <div class="vertical-space-85"></div>
+    <h1>Create new Certif</h1>
+
+    {{ include('certif/_form.html.twig') }}
+
+    <a href="{{ path('certif_index') }}">back to list</a>
+{% endblock %}

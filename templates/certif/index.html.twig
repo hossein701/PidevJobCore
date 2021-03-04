@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Certif index{% endblock %}
+
+{% block content %}
+    <div class="vertical-space-85"></div>
+    <div class="vertical-space-85"></div>
+    <h1>Certif index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for certif in certifs %}
+            <tr>
+                <td>{{ certif.id }}</td>
+                <td>{{ certif.nom }}</td>
+                <td>{{ certif.date ? certif.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('certif_show', {'id': certif.id}) }}">show</a>
+                    <a href="{{ path('certif_edit', {'id': certif.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('certif_new') }}">Create new</a>
+{% endblock %}
